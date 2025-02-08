@@ -17,13 +17,17 @@ Output: "The late fee is $2.50."
 */
 
 // ✍️ ✍️ ✍️ ✍️ Write the function here ✍️ ✍️ ✍️ ✍️
+function calculateLateFee(overdueDays) {
+  console.log("The Late Fee is $1.25");
+}
 
-
+calculateLateFee();
 
 // Extra Task:
 // - Convert the function into a function expression.
+const multiply = (overdueDays, feePerDay) => overdueDays * feePerDay;
 
-
+console.log(multiply(5, 0.25));
 
 /*
 Task 2 : Favorite Color Finder 🚀🚀🚀🚀
@@ -44,13 +48,24 @@ Output: "Red: You are passionate and bold."
 */
 
 // ✍️ ✍️ ✍️ ✍️ Write the function here ✍️ ✍️ ✍️ ✍️
-
-
+function findColorMeaning() {
+  let color = prompt("What is your favorite color? ");
+  if (color === "blue") {
+    console.log("Blue: You love calm and peace.");
+  } else if (color === "red") {
+    console.log("Red: You are passionate and bold.");
+  } else if (color === "green") {
+    console.log("Green: You are connected to nature.");
+  } else if (color === "yellow") {
+    console.log("Yellow: You radiate happiness and energy.");
+  } else {
+    console.log("That's a unique choice!");
+  }
+}
+findColorMeaning();
 
 // Extra Task:
 // - Rewrite the function using an arrow function.
-
-
 
 /*
 Task 3 : Lawyer's Case Log 🚀🚀🚀🚀
@@ -67,13 +82,12 @@ Output: "Case #12345: John Doe's case is now logged."
 */
 
 // ✍️ ✍️ ✍️ ✍️ Write the function here ✍️ ✍️ ✍️ ✍️
-
-
-
+function logCase() {
+  console.log("Case #12012: Ahmed Abdi's case is now logged.");
+}
+logCase("Ahmed Abdi", 12012);
 // Extra Task:
 // - Rewrite the function as an arrow function.
-
-
 /*
 Task 4 : Attendance Tracker 🚀🚀🚀🚀
 
@@ -93,14 +107,25 @@ Output: "Amina is present."
 */
 
 // ✍️ ✍️ ✍️ ✍️ Write the function here ✍️ ✍️ ✍️ ✍️
-
-
+function markAttendance(studentName, isPresent) {
+  if (isPresent) {
+    console.log(`${studentName} is present.`);
+  } else {
+    console.log(`${studentName} is absent.`);
+  }
+}
+markAttendance("Fartun", true);
+markAttendance("Ahmed", false);
 
 // Extra Task:
 // - Convert the function into a function expression.
-
-
-
+const Attendance = function (studentName, isPresent) {
+  if (isPresent) {
+    console.log(`${studentName} is present.`);
+  } else {
+    console.log(`${studentName} is absent.`);
+  }
+};
 /*
 STRETCH TASK: Student Grade Report Generator 🏈🏈🏈🏈
 
@@ -135,3 +160,49 @@ Extra Credit:
 - Extend the program to accept multiple students' names and scores and generate a report for each student using a loop.
 - Use an arrow function for at least one of the functions.
 */
+function calculateAverage(score1, score2, score3) {
+  return (score1 + score2 + score3) / 3;
+}
+function determineGrade(average) {
+  if (average >= 90) {
+    return "A";
+  } else if (average >= 80) {
+    return "B";
+  } else if (average >= 70) {
+    return "C";
+  } else {
+    return "F";
+  }
+}
+function generateReport(studentName, score1, score2, score3) {
+  const average = calculateAverage(score1, score2, score3);
+  const grade = determineGrade(average);
+  return `${studentName} - Average Score: ${average.toFixed(
+    2
+  )}, Grade: ${grade}`;
+}
+const studentName = prompt("Enter the student's name:");
+const score1 = parseFloat(prompt("Enter the first test score:"));
+const score2 = parseFloat(prompt("Enter the second test score2:"));
+const score3 = parseFloat(prompt("Enter the third test score:"));
+
+const report = generateReport(studentName, score1, score2, score3);
+console.log(report);
+const numOfStudents = parseInt(
+  prompt("How many students do you want to enter?")
+);
+for (let i = 0; i < numOfStudents; i++) {
+  const studentName = prompt(`Enter the name of student #${i + 1}:`);
+  const score1 = parseFloat(
+    prompt(`Enter the first test score for ${studentName}:`)
+  );
+  const score2 = parseFloat(
+    prompt(`Enter the second test score for ${studentName}:`)
+  );
+  const score3 = parseFloat(
+    prompt(`Enter the third test score for ${studentName}:`)
+  );
+
+  const report = generateReport(studentName, score1, score2, score3);
+  console.log(report);
+}
